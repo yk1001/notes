@@ -38,4 +38,13 @@
 ---
 	mysql -u root -p #输入随机生成的密码
 	ALTER USER USER() IDENTIFIED BY '新密码';
-	
+8,关于密码错误 authentication plugin 'caching_sha2_password'
+---
+	#1、由于myslq8不支持动态修改密码验证方式，所以要先停止mysql
+	net stop mysql
+	#2、在my.ini文件中默认有下面的语句，删除前面的#号即可，没有的话就把它添加到my.ini中
+	default-authentication-plugin=mysql_native_password
+	#3、 修改root用户密码，以启用新的验证方式
+	use mysql;
+	ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'new password';
+	FLUSH PRIVILEGES;
