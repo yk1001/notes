@@ -12,3 +12,12 @@
 	#注意 maven settings.xml文件配置合适的镜像地址，方便拉取jar包
   	Default settings provider	  = /var/jenkins_home/apache-maven-3.3.9/conf/settings.xml
   	Default global settings provider	 = /var/jenkins_home/apache-maven-3.3.9/conf/settings.xml
+
+5,aliyun镜像
+---
+		<mirror>
+			<id>nexus-aliyun</id>
+			<mirrorOf>central</mirrorOf>
+			<name>Nexus aliyun</name>
+			<url>http://maven.aliyun.com/nexus/content/repositories/central</url>
+		</mirror>
