@@ -1,29 +1,29 @@
-1,ÏÂÔØ¹Ù·½docker
+1,ä¸‹è½½å®˜æ–¹docker
 ---
 	docker pull mysql:8.0
-	#docke pull registry.cn-hangzhou.aliyuncs.com/docker-org/mysql:8.0
-2,´´½¨¹ÒÔØÄ¿Â¼
+	#docker pull registry.cn-hangzhou.aliyuncs.com/docker-org/mysql:8.0
+2,åˆ›å»ºæŒ‚è½½ç›®å½•
 ---
 	mkdir /var/mysql/conf
 	mkdir /var/mysql/data
-3,ÔÚÄ¿Â¼/var/mysql/conf ´´½¨ÎÄ¼ş config-file.cnf
+3,åœ¨ç›®å½•/var/mysql/conf åˆ›å»ºæ–‡ä»¶ config-file.cnf
 ---
 	[mysqld]
-	#ÔÊĞí×î´óÁ¬½ÓÊı
+	#å…è®¸æœ€å¤§è¿æ¥æ•°
 	max_connections=200
-	#·şÎñ¶ËÊ¹ÓÃµÄ×Ö·û¼¯Ä¬ÈÏÎª8±ÈÌØ±àÂëµÄlatin1×Ö·û¼¯
+	#æœåŠ¡ç«¯ä½¿ç”¨çš„å­—ç¬¦é›†é»˜è®¤ä¸º8æ¯”ç‰¹ç¼–ç çš„latin1å­—ç¬¦é›†
 	character-set-server=utf8
-	#´´½¨ĞÂ±íÊ±½«Ê¹ÓÃµÄÄ¬ÈÏ´æ´¢ÒıÇæ
+	#åˆ›å»ºæ–°è¡¨æ—¶å°†ä½¿ç”¨çš„é»˜è®¤å­˜å‚¨å¼•æ“
 	default-storage-engine=INNODB
 	default-authentication-plugin=mysql_native_password
 	sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION
-4,Æô¶¯docker images
+4,å¯åŠ¨docker images
 ---
 	sudo docker run --name mysql -v /var/mysql/conf:/etc/mysql/conf.d -v /var/mysql/data:/var/lib/mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -d registry.cn-hangzhou.aliyuncs.com/docker-org/mysql:8.0
-	#/etc/mysql/conf.d ÊÇ¾µÏñÖĞÄ¬ÈÏ×Ô¶¨ÒåÅäÖÃÎÄ¼şµÄµØÖ·£¬¸ÃÎÄ¼şÖĞÅäÖÃ»á¸²¸Ç my.cnfÄ¬ÈÏÅäÖÃ
-	#/var/lib/mysql ÊÇ¾µÏñÖĞÄ¬ÈÏdatadirÄ¿Â¼
-5,ÑéÖ¤
+	#/etc/mysql/conf.d æ˜¯é•œåƒä¸­é»˜è®¤è‡ªå®šä¹‰é…ç½®æ–‡ä»¶çš„åœ°å€ï¼Œè¯¥æ–‡ä»¶ä¸­é…ç½®ä¼šè¦†ç›– my.cnfé»˜è®¤é…ç½®
+	#/var/lib/mysql æ˜¯é•œåƒä¸­é»˜è®¤datadirç›®å½•
+5,éªŒè¯
 ---
-	navicat »òÆäËû¿Í»§¶Ë ½øĞĞÁ¬½ÓÑéÖ¤
-	ls -a /var/mysql/data #½øĞĞÄ¿Â¼¹ÒÔØÑéÖ¤
+	navicat æˆ–å…¶ä»–å®¢æˆ·ç«¯ è¿›è¡Œè¿æ¥éªŒè¯
+	ls -a /var/mysql/data #è¿›è¡Œç›®å½•æŒ‚è½½éªŒè¯
 	
