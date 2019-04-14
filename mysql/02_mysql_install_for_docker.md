@@ -4,8 +4,8 @@
 	#docker pull registry.cn-hangzhou.aliyuncs.com/docker-org/mysql:8.0
 2,创建挂载目录
 ---
-	mkdir /var/mysql/conf
-	mkdir /var/mysql/data
+	mkdir -p /var/mysql/conf
+	mkdir -p /var/mysql/data
 3,在目录/var/mysql/conf 创建文件 config-file.cnf
 ---
 	[mysqld]
