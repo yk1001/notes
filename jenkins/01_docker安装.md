@@ -12,7 +12,7 @@
 	docker pull registry.cn-hangzhou.aliyuncs.com/docker-org/jenkins:lts
 3,镜像启动命令
 ---
-	sudo docker run -itd -p 8080:8080 -p 50000:50000 --name jenkins --privileged=true -v /var/jenkins_home:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock registry.cn-hangzhou.aliyuncs.com/docker-org/jenkins:lts
+	sudo docker run --user root -itd -p 8080:8080 -p 50000:50000 --name jenkins -v /var/jenkins_home:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock  registry.cn-hangzhou.aliyuncs.com/docker-org/jenkins:lts
 4,启动完成后更改插件网点地址
 ---
 	vi /var/jenkins_home/hudson.model.UpdateCenter.xml
